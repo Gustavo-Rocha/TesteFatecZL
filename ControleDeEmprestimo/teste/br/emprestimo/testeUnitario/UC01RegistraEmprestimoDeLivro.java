@@ -40,6 +40,9 @@ public class UC01RegistraEmprestimoDeLivro {
 	public void CT01UC01FB_registrar_emprestimo_com_sucesso() {
 		assertNotNull(servico.empresta(livro, usuario));
 	}
+	
+	
+	
 	@Test(expected=RuntimeException.class)
 	public void CT02UC01FB_registrar_emprestimo_com_dados_invalidos() {
 		servico.empresta(null, usuario);
@@ -67,4 +70,92 @@ public class UC01RegistraEmprestimoDeLivro {
 	public void CT05UC01FB_registrar_emprestimo_com_data_invalida() {
 		assertTrue(emprestimo.validaData("29/03/2000"));
 	}
+	
+	@Test
+	public void CT06UC01FB_registrar_emprestimo_com_sucesso() {
+		assertNotNull(emprestimo.getUsuario());
+	}
+	
+	
+	@Test
+	public void CT07UC01FB_registrar_emprestimo_com_sucesso() {
+		assertEquals(livro,emprestimo.getLivro());
+	}
+	
+	
+	
+	@Test
+	public void CT08UC01FB_registrar_emprestimo_com_data_invalida() {
+		assertFalse(emprestimo.validaData("29/30/2000"));
+	}
+	
+	
+	
+	@Test
+	public void CT09UC01FB_registrar_emprestimo_com_data_invalida() {
+		assertTrue(emprestimo.validaData("29/03/2000"));
+	}
+	
+	
+		
+	
+	@Test
+	public void CT010UC01FB_registrar_emprestimo_com_data_invalida() {
+		assertEquals("11111",usuario.getRa());
+	}
+	
+	@Test
+	public void CT011UC01FB_registrar_emprestimo_com_data_invalida() {
+		assertEquals("Jose da Silva",usuario.getNome());
+	}
+	
+	
+	@Test
+	public void CT012UC01FB_registrar_emprestimo_com_data_invalida() {
+
+		assertFalse(usuario.equals(null));
+	}
+
+	@Test
+	public void CT013UC01FB_registrar_emprestimo_com_data_invalida() {
+		Usuario us = new Usuario();
+		assertFalse(usuario.equals(us));
+	}
+
+	@Test
+	public void CT014UC01FB_registrar_emprestimo_com_data_invalida() {
+		Usuario us = new Usuario();
+		
+		assertFalse(us.equals(usuario));
+	}
+	
+	@Test
+	public void CT015UC01FB_registrar_emprestimo_com_data_invalida() {
+		Usuario us = new Usuario();
+		us.setNome("neco");
+		Usuario us2 = new Usuario();
+		assertFalse(us2.equals(us));
+	}
+	
+	@Test
+	public void CT016UC01FB_registrar_emprestimo_com_data_invalida() {
+		Usuario us = new Usuario();
+		us.setRa("4687");
+		Usuario us2 = new Usuario();
+		assertFalse(us2.equals(us));
+	}
+	
+	@Test
+	public void CT017UC01FB_registrar_emprestimo_com_data_invalida() {
+		usuario.setRa(null);
+		assertFalse(usuario.equals("11111"));
+	}
+	
+	
+	@Test
+	public void CT018UC01FB_registrar_emprestimo_com_data_invalida() {
+		
+		assertFalse(usuario.equals(null));
+	}
+	
 }
